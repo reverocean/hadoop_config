@@ -1,0 +1,69 @@
+1. modify each computer /etc/hosts
+127.0.0.1 		localhost
+192.168.56.101	master
+192.168.56.102	slave1
+192.168.56.103	slave2
+
+2. set hostname
+/etc/hostname
+
+3. change configuration files under the 'conf'
+
+3.1 core-site.xml
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+  <property>
+     <name>fs.default.name</name>
+     <value>hdfs://master:9000</value>
+  </property>
+  <property>
+     <name>hadoop.tmp.dir</name>
+     <value>/tmp</value>
+  </property>
+</configuration>
+
+3.2 hdfs-site.xml
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+  <property>
+     <name>dfs.replication</name>
+     <value>2</value>
+  </property>
+
+</configuration>
+
+3.3 mapred-site.xml
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+  <property>
+     <name>mapred.job.tracker</name>
+     <value>master:9001</value>
+  </property>
+</configuration>
+
+3.4 masters
+master
+
+3.5 slaves
+slave1
+slave2
+
+4. hadoop-env.sh
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
+
+5. configuration ssh
+ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+

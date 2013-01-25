@@ -1,0 +1,4 @@
+run "hadoop" to get help 
+./bin/hadoop namenode -format
+./bin/start-all.sh
+./bin/stop-all.sh
