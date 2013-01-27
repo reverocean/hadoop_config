@@ -67,3 +67,15 @@ export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
 ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
 cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
 
+6. same user account
+
+7. disable ipv6
+sudo vi /etc/sysctrl.conf
+add 'net.ipv6.conf.all.disable_ipv6 = 1' at the end of the file
+run 'sudo sysctl -p' to let the configuration effect
+run 'ip a | grep inet6' to check
+
+8. add disable ipv6 in the hadoop-env.sh file
+
+9. delete the 127.0.1.1 in the '/etc/hosts' file
+

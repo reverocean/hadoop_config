@@ -2,3 +2,10 @@ run "hadoop" to get help
 ./bin/hadoop namenode -format
 ./bin/start-all.sh
 ./bin/stop-all.sh
+
+hadoop namenode -finalize
+
+hadoop dfsadmin -report
+hadoop dfs -put ./ fileName
+hadoop dfsadmin -safemodel leave
+jps
