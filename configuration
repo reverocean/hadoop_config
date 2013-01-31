@@ -37,7 +37,10 @@
      <name>dfs.replication</name>
      <value>2</value>
   </property>
-
+  <property>
+      <name>hadoop.tmp.dir</name> 
+      <value>/home/haiyang/tmp/</value>
+  </property>
 </configuration>
 
 3.3 mapred-site.xml

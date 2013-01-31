@@ -9,3 +9,4 @@ hadoop dfsadmin -report
 hadoop dfs -put ./ fileName
 hadoop dfsadmin -safemodel leave
 jps
+hadoop jar ... wordcount in out
